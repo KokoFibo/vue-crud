@@ -31,7 +31,6 @@ class UserController extends Controller
     public function create()
     {
 
-
         return Inertia::render('Create');
     }
 
@@ -62,7 +61,7 @@ class UserController extends Controller
 
         // this also can
         // return to_route('home');
-        return redirect()->route('home');
+        return redirect()->route('home.index');
     }
 
     /**
@@ -108,7 +107,7 @@ class UserController extends Controller
             $data->save();
         }
 
-        return redirect()->route('home');
+        return redirect()->route('home.index');
     }
 
     /**

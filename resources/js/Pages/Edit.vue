@@ -21,7 +21,10 @@ const form = useForm({
     <div class="card w-96 bg-base-100 shadow-xl m-auto mt-10">
         <div class="card-body">
             <h2 class="card-title">Edit User Data</h2>
-            <form @submit.prevent="form.put(form.id)" class="form-control">
+            <form
+                @submit.prevent="form.put(route('home.update', form.id))"
+                class="form-control"
+            >
                 <input
                     type="text"
                     placeholder="Name"

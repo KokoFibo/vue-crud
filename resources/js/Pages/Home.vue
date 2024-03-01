@@ -25,7 +25,7 @@ defineProps({
                         <th>Name</th>
                         <th>Email</th>
                         <th>
-                            <Link :href="route('create')"
+                            <Link :href="route('home.create')"
                                 ><button class="btn btn-secondary">
                                     Create
                                 </button></Link
@@ -39,16 +39,17 @@ defineProps({
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
                         <td>
-                            <Link :href="route('edit', user.id)"
+                            <Link :href="route('home.edit', user.id)"
                                 ><button class="btn btn-warning">
                                     Edit
                                 </button></Link
                             >
                             <!-- bisa pakai 'method=delete' lalu di route pake 'delete', atau -->
                             <!-- tanpa 'method=delete' tapi di route pake 'get' -->
+                            <!-- Tambahkan except('show') di web route resource -->
                             <Link
-                                :href="route('delete', user.id)"
-                                method="delete"
+                                :href="route('home.destroy', user.id)"
+                                method="DELETE"
                                 ><button class="btn btn-error">
                                     Delete
                                 </button></Link

@@ -18,7 +18,7 @@ const form = useForm({
         <div class="card-body">
             <h2 class="card-title">Create User Data</h2>
             <form
-                @submit.prevent="form.post('/store')"
+                @submit.prevent="form.post(route('home.store'))"
                 class="form-control"
                 method="POST"
             >
