@@ -36,12 +36,14 @@ Route::get('/dashboard', function () {
 //     ]);
 // })->middleware(['auth', 'verified'])->name('home');
 
-Route::get('/home', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-Route::get('/home/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('create');
-Route::post('/store', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('store');
-Route::get('/edit/{id}', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('edit');
-Route::put('/edit/{id}', [UserController::class, 'update'])->middleware(['auth', 'verified'])->name('update');
-Route::delete('/delete/{id}', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('delete');
+// Route::get('/home', [UserController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+// Route::get('/home/create', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('create');
+// Route::post('/store', [UserController::class, 'store'])->middleware(['auth', 'verified'])->name('store');
+// Route::get('/edit/{id}', [UserController::class, 'edit'])->middleware(['auth', 'verified'])->name('edit');
+// Route::put('/edit/{id}', [UserController::class, 'update'])->middleware(['auth', 'verified'])->name('update');
+// Route::delete('/delete/{id}', [UserController::class, 'destroy'])->middleware(['auth', 'verified'])->name('delete');
+
+Route::resource('user', UserController::class);
 
 
 
