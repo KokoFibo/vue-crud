@@ -3,6 +3,7 @@
 import { Head } from "@inertiajs/vue3";
 import Navbar from "@/Components/Navbar.vue";
 import { Link } from "@inertiajs/vue3";
+import Pagination1 from "@/Components/Pagination1.vue";
 
 defineProps({
     name: String,
@@ -34,7 +35,7 @@ defineProps({
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="user in users" :key="user.id" class="hover">
+                    <tr v-for="user in users.data" :key="user.id" class="hover">
                         <td>{{ user.id }}</td>
                         <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
@@ -58,6 +59,48 @@ defineProps({
                     </tr>
                 </tbody>
             </table>
+            <!-- <Pagination1 class="mt-6" :links="users.links" /> -->
+            <!-- Paginator -->
+            <div class="mt-6">
+                <template v-for="link in users.links">
+                    <Link
+                        :class="
+                            link.active
+                                ? 'px-1 font-semibold bg-gray-700 text-white rounded'
+                                : 'px-1'
+                        "
+                        v-if="link.url"
+                        :href="link.url"
+                        v-html="link.label"
+                    />
+                    <span
+                        :class="link.url ? '' : 'text-gray-300'"
+                        v-else
+                        v-html="link.label"
+                    ></span>
+                </template>
+                <!-- <div> -->
+                <p>
+                    Showing page {{ users.current_page }} of
+                    {{ users.last_page }}
+                </p>
+                <p>
+                    Data {{ users.from }} to {{ users.to }} of
+                    {{ users.total }}
+                </p>
+                <!-- </div> -->
+            </div>
+
+            <!-- <div class="mt-6">
+                <template>
+                    <Component
+                        :is="link.url ? 'Link' : 'span'"
+                        v-for="link in users.links"
+                        :href="link.url"
+                        v-html="link.label"
+                    ></Component>
+                </template>
+            </div> -->
         </div>
     </div>
 </template>
